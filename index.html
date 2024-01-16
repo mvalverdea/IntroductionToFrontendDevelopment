@@ -1,3 +1,5 @@
+<!--SEMANA 1-->
+
 <!-- -----Cómo funciona la web----- -->
 <!--
 Cómo funciona internet
@@ -88,4 +90,202 @@ API y servicios
 ¿Qué es un IDE?
 	- Un entorno de desarrollo integrado (IDE) es software para crear aplicaciones. Un IDE
 	  es como un editor de texto, excepto que en lugar de escribir documentos, escribe código.
+-->
+
+
+
+<!--SEMANA 2-->
+
+<!-- -----Empezando con HTML----- -->
+<!--
+¿Qué es el lenguaje de marcado de hipertexto?
+	- El hipertexto es texto que contiene enlaces a otro texto. El marcado se refiere a
+	  etiquetas y elementos utilizados dentro de un documento.
+	- HTML es un archivo de texto con una estructura específica que consta de elementos y
+	  etiquetas.
+	- Cada elemento HTML consta de una etiqueta de apertura encerrada entre corchetes
+	  angulares. Los elementos HTML suelen tener algún contenido en su interior e incluso
+	  pueden contener otros elementos. Los elementos también pueden estar vacíos o cerrarse
+	  automáticamente, lo que significa que no tienen una etiqueta HTML de cierre.
+
+Documentos HTML
+	- La estructura estándar de HTML comienza con la declaración DOCTYPE, que indica al
+	  navegador que se trata de un documento HTML.
+	- Nada dentro del elemento <head> se muestra en la página web del navegador, solo se
+	  coloca información o metadatos sobre los documentos HTML, como por ejemplo, el título
+	  que aparece en la pestaña del navegador. Dentro de <head> también se puede vincular
+	  archivos CSS y definir metaetiquetas, como por ejemplo, especificar la descripción
+	  de la página web, palabras clave para motores de búsqueda y el orden de la página web.
+	- En el elemento <body> se agrega el contenido de la página web, como por ejemplo,
+	  encabezados, párrafos, imágenes y videos.
+
+
+Etiquetas HTML simples
+	- Heading: <h1>, <h2>, <h3>, <h4>, <h5> y <h6>
+	- Paragraph: <p>
+	- Line break: <br>
+	- Strong: <strong>
+	- Bold: <b>
+	- Emphasis: <em>
+	- Italics: <i>
+	- List: unirdered(<ul><li>) - ordered(<ol><li>)
+	- Div: <div>
+
+Vinculación de documentos
+	- Para enlazar páginas web y crear un sitio web se hace uso de la etiqueta anchor (<a>),
+	  seguido por el atributo de referencia de hipertexto (href).
+
+Añadir imágenes a una página web con HTML
+	- Para poner imágenes en una página web se usa la etiqueta image (<img>), seguido del
+	  atributo fuente (src). Usualmente se coloca una descripción a la imagen, esto mediante
+	  el atributo altar (alt).
+	- Si no se especifica las dimensiones de la imagen, esta se mostrará en su tamaño real.
+	  El tamaño de la imagen se puede ajustar con los atributos width y height.
+
+Utilizar HTML para trabajar con datos en tablas
+	- Para crear una tabla se usa la etiqueta table (<table>). Se combina con la etiqueta
+	  rows (<tr>) y data (<td>). La etiqueta de tabla header (<th>) adiciona el encabezado
+	  a la tabla.
+
+¿Qué son los formularios?
+	- Un formulario se define con la etiqueta form (<form>) y tiene un atributo opcional
+	  action. Hay 2 métodos para enviar los datos del formulario: GET (recupera datos del
+	  servidor) y POST (envía datos al servidor).
+	- El tipo de entrada se especifica con la etiqueta input (<input>) que según su atributo
+	  type, puede ser: text, password, submit, checkbox, radio, number, email, file, etc.
+ 	  Esta etiqueta se suele combinar con la etiqueta label (<label>) para etiquetarlos.
+
+Introducción al DOM
+	- El modelo de objetos de documento (DOM) es un árbol o estructura de objetos en donde
+	  cada uno representa un único elemento de un archivo HTML. Permite actualizar todos los
+	  elementos HTML de una sitio web, haciéndolo dinámico.
+	- Muchas librerías y frameworks de JavaScript dependen del DOM, una de estas librerías
+	  es la librería react.
+-->
+
+
+
+<!-- -----Conceptos básicos de CSS----- -->
+<!--
+Seleccionar y estilizar
+	- Una regla CSS está compuesto por un selector, una llave de apertura, un bloque de
+	  declaración y una llave de cierre. En el bloque de declaración se colocan las
+	  declaraciones, conformado por propiedades y sus respectivos valores.
+	- El enlace entre el archivo HTML y CSS se hace con la etiqueta link (<link>).
+	- Según la regla de jerarquía de CSS, se aplicará un estilo u otro a un elemento HTML.
+
+Diferentes tipos de selectores
+	- Algunos tipo de selectores son: element selectors, id selectors, class selectors,
+	  element with class selector, descendant selecctors, child selectors, etc.
+
+
+Texto y color en CSS
+	- Las 5 formas de aplicar color son: RGB value, RGBA value, HSL value, hex value y
+	  predefined color names.
+	- Algunos tipos de fuentes y tamaños para aplicar a un texto son: font-family,
+	  font-size, text-transform, text-decoration, etc.
+
+
+Introducción al modelo de caja
+	- A cada elemento HTML se le asigna una caja, por medio de la cual se aplica las reglas
+	  CSS. Cada caja consta de 4 partes: the content, the padding, the border y the margin.
+	- El content es el contenido actual del elemento. Su tamaño se conoce como content
+	  width y content height. Su tamaño se puede manipular mediante las siguiente reglas
+	  CSS: width, minimum width, maximum width, height, minimum height y maximum height.
+	- El padding extiende el tamaño del content. Su tamaño se conoce como padding box width
+	  y padding box height. Su grosor es determinado por el padding top, padding bottom,
+	  padding left y padding right. El padding width se calcula como "content width + padding
+	  left side + padding right side". El padding box height se calcula como "content height
+	  + padding top side + padding bottom side".
+	- El border rodea al padding y content. Su tamaño se conoce como border box width y
+	  border box height. El border puede ser: solid, dashed, dotted y double. El border-width
+	  puede ser: thin, medium y thick. El border box width se calcula como "padding box width
+	  + border left side + border right side". El border box height se calcula como "padding
+	  box height + border top side + border bottom side".
+	- El margin extiende el área del border para separar el elemento de sus elementos vecinos.
+	  Su tamaño se conoce como margin box width y margin box height. 
+	- En el modelo de caja, un elemento HTML es igual de tamaño del border box. Los lados del
+	  margin se pueden especificar mediante: margin-top, margin-bottom, margin-left y margin-
+	  right. El margin box width se calcula como "border box width + margin left side +
+	  margin right side". El margin box height se calcula como "border box height + margin top
+	  side + margin bottom side".
+
+Flujo del documento - bloque vs en línea
+	- El flujo de documento es la forma normal en que los navegadores web calculan la posición
+	  de los elementos HTML en la pantalla.
+	- De forma predeterminada, casi todos los elementos html están organizados en una de dos
+	  categorías: block y inline.
+	- Un elemento a nivel de bloque ocupará todo el ancho horizontal de su elemento padre y
+	  la altura vertical de su contenido. Algunos elementos a nivel de bloque son: div, form,
+	  h1, h2, h3, h4, h5 y h6.
+	- Un elemento en línea solo ocupa el ancho y alto de su contenido. Algunos elementos en
+	  línea son: a, img, input, label, b, i, em y span.
+-->
+
+
+
+<!-- -----Creando una página web----- -->
+<!-- Arhivo index.html
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Miguel</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div>
+            <h1>Miguel</h1>
+        </div>
+        <div>
+            <img src="photo.jpg" id="photo">
+        </div>
+        <div>
+            <h2>Favorite Music Artists</h2>
+            <ul>
+                <li>Artist1</li>
+                <li>Artist2</li>
+                <li>Artist3</li>
+                <li>Artist4</li>
+                <li>Artist5</li>
+            </ul>
+        </div>
+        <div>
+            <h2>Favorite Films</h2>
+            <ol>
+                <li>Movie1</li>
+                <li>Movie2</li>
+                <li>Movie3</li>
+                <li>Movie4</li>
+                <li>Movie5</li>
+            </ol>
+        </div>
+        <div>
+            <a href="https://www.meta.com/">My Profile</a>
+        </div>
+    </body>
+</html>
+
+-->
+
+<!-- Arhivo style.css
+
+img {
+    border: 2px solid blue;
+}
+
+h1 {
+    color: blue;
+}
+
+h2 {
+    color: grey;
+
+}
+
+
+div {
+    margin: 4px;
+}
+
 -->
