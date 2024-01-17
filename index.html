@@ -289,3 +289,198 @@ div {
 }
 
 -->
+
+
+
+<!--SEMANA 3-->
+
+<!-- -----Introducción a los frameworks y librerías de UI----- -->
+<!--
+Trabajando con librerías
+	- A las librerías y frameworks se les suele denominar dependencias debido a que proporcionan
+	  las funciones API que interactúan con el código. En el frontend esto se hace referenciando
+	  los archivos JavaScript o CSS en el archivo HTML.
+	- La librería se agrega en el elemento head mediante la etiqueta link (<link>).
+	- Para hacer referencia a un script o archivo JavaScript en un documento HTML, utilice la
+	  etiqueta script (<script>).
+	- Una librería usada para desarrollar interfaces de usuario es la librería Bootstrap.
+	- Una dependencia puede depender de otras librerías y frameworks, formando un árbol de
+	  dependencia.
+	- Un administrador de paquetes es una herramienta que descarga e instala dependencias
+	  automáticamente. El administrador de paquetes más común para el desarrollo frontend es
+	  Node Package Manager (NPPM).
+	- El propósito de un empaquetador es combinar las dependencias en un solo archivo. Si el
+	  paquete es demasiado grande, las dependencias se agrupan en paquetes más pequeños.
+
+Introducción al diseño responsivo
+	- Se refiere a que una página web puede estirarse o encogerse automáticamente dependiendo
+	  de la pantalla en la que se muestra. Está formado por la combinación de 3 técnicas:
+	  flexible grids, fluid images y media queries.
+
+Bootstrap
+	- Es una biblioteca de código CSS y JavaScript que se usa para crear rápidamente sitios
+	  web visualmente atractivos, ya que viene con múltiples componentes (pequeños fragmentos
+	  de código reutilizables) y con un conjunto prediseñado de reglas CSS para crear una
+	  cuadrícula responsiva.
+
+Usando estilos Bootstrap
+	- Los modifiers cambian el estilo visual de los componentes. Los infixes indican los puntos
+	  de interrupción responsivos.
+	- Los puntos de interrupción son los desencadenantes en Bootstrap de cómo cambia el diseño
+	  y tamaño en los dispositivos. Los puntos de interrupción responsivos disponibles en
+	  Bootstrap son: extra small, small, medium, large, extra large y extra extra large.
+	- Algunos modifiers disponibles en Bootstrap son: primary, secondary, success, info, warning,
+	  danger, light y dark.
+
+Cuadrícula Bootstrap
+	- El sistema de cuadrícula Bootstrap siempre contiene containers, rows y columns.
+	- El elemento contaienr es el elemento base para usar la cuadrícula Bootstrap.
+
+LAB: Trabajando con la cuadrícula Bootstrap
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Little Lemon</title>
+        <link href="bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center">
+                        <img src="logo.png" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center">
+                        <h1>Our Menu</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <h2>Falafel</h2>
+                    <p>Chickpea, herbs, spices.</p>
+                    <h2>Fried Calamari</h2>
+                    <p>Squid, buttermilk.</p>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <h2>Pasta Salad</h2>
+                    <p>Lettuce, vegetables, mozzarella.</p>
+                    <h2>Greek Salad</h2>
+                    <p>Cucumbers, onion, feta cheese.</p>
+                </div>
+            </div>
+        </div>
+        <script src="bootstrap.bundle.min.js"></script>
+    </body>
+</html>
+
+LAB: Trabajando con los componentes Bootstrap
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Little Lemon</title>
+        <link href="bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center">
+                        <img src="logo.png" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center">
+                        <h1>Our Menu</h1>
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                        Our resturaunt will be closed on New Year's Day
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <h2>Falafel <span class="badge bg-secondary">New</span></h2>
+                    <p>Chickpea, herbs, spices.</p>
+                    <h2>Fried Calamari</h2>
+                    <p>Squid, buttermilk.</p>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <h2>Pasta Salad</h2>
+                    <p>Lettuce, vegetables, mozzarella.</p>
+                    <h2>Greek Salad</h2>
+                    <p>Cucumbers, onion, feta cheese.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary">Order Online</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="bootstrap.bundle.min.js"></script>
+    </body>
+</html>
+-->
+
+
+
+<!-- -----Introducción a React----- -->
+<!--
+Contenido estático y dinámico
+	- El contenido que se envía desde el servidor al navegador puede ser estático o dinámico.
+	- El contenido estático son archivos que el servidor transfiere tal como están almacenados
+	  en el servidor web. El contenido dinámico, se genera cuando se realiza la solicitud HTTP.
+	- El servidor de aplicaciones genera el contenido dinámico que el servidor web envía al
+	  navegador del usuario.
+	- Los servidores de aplicaciones suelen tener una capacidad limitada sobre la cantidad de
+	  solicitudes que pueden procesar por segundo. Para solucionar esto,  los servidores web
+	  utilizan un proceso llamado almacenamiento en caché en lugar de generar contenido
+	  dinámicamente para cada solicitud. El almacenamiento en caché significa que el servidor
+	  web guarda una copia del contenido dinámico, para que en solicitudes posteriores, el
+	  servidor web devuelva inmediatamente el contenido almacenado en la memoria caché.
+
+Aplicaciones de una sola página
+	- Un aplicación de una sola página (SPA) permite al usuario interactuar con el sitio web
+	  sin que la aplicación necesite descargar páginas web completamente nuevas. En cambio,
+	  reescribe la página web actual a medida que el usuario interactúa con ella.
+	- Un SPA tiene 2 enfoques para servir código y recursos. El primero se llama agrupación y
+	  el segundo se conoce como carga lenta o división de código.
+	- Con la agrupación, cuando el navegador solicita la aplicación, el servidor regresa y
+	  carga todo el HTML, CSS y JavaScript necesarios inmediatamente. Con la carga lenta, el
+	  navegador solicita la aplicación y el servidor devuelve solo el HTML, CSS y JavaScript
+	  mínimos necesarios para cargar la aplicación (los recursos adicionales se descargan
+	  según sean necesarios).
+
+¿Qué es React?
+	- Es una librería de código abierto de JavaScript que se centra en trabajar con componentes,
+	  lo que simplifica la creación de interfaces de usuario funcionales en la web y en
+	  dispositivos móviles
+	- Permite a los desarrolladores escribir menos código para implementar la funcionalidad
+	  en un navegador web, les ayuda a mantener el código a largo plazo y simplifica las
+	  pruebas, y también permite a los desarrolladores reutilizar componentes al crear sus
+	  aplicaciones.
+
+Cómo funciona React
+	- Cuando React construye su árbol de componentes en la memoria llamado DOM virtual.
+	- React actualiza el DOM virtual y lo compara con la versión anterior del DOM virtual. Si
+	  se ha producido un cambio, solo ese elemento se actualiza en el DOM del navegador. Los
+	  cambios en el DOM del navegador hacen que cambie la página web mostrada. A este proceso
+	  se le denomina reconciliación.
+
+El DOM virtual
+	- En caso de que un evento actualice muchos elementos, enviar la actualización al DOM del
+	  navegador aún puede ser costoso y provocar un rendimiento lento en la aplicación web. Es
+	  aquí en donde se hace uso del principio React Fiber Architecture, el cual permite que
+	  React represente incrementalmente la página web, actuando como un sistema de prioridades.
+-->
