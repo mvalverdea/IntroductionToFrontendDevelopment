@@ -1,3 +1,5 @@
+<!--Introduction to Front-End Development-->
+
 <!--SEMANA 1-->
 
 <!-- -----Cómo funciona la web----- -->
@@ -483,4 +485,158 @@ El DOM virtual
 	  navegador aún puede ser costoso y provocar un rendimiento lento en la aplicación web. Es
 	  aquí en donde se hace uso del principio React Fiber Architecture, el cual permite que
 	  React represente incrementalmente la página web, actuando como un sistema de prioridades.
+-->
+
+
+
+
+
+<!--Programming with JavaScript-->
+
+<!--SEMANA 1-->
+
+<!-- -----Bienvenido a la programación----- -->
+<!--
+Introducción a la programación
+	- Un programa de computadora es solo una serie de instrucciones basadas en algunas reglas.
+	  Estas instrucciones le dicen a una computadora qué hacer bajo algunas circunstancias
+	  específicas y están escritas para realizar un conjunto específico de tareas.
+	- Para programar estas instrucciones utilizamos lenguajes de programación.
+
+
+¿Por qué JavaScript?
+	- JavaScript es un lenguaje que genera interactividad en las páginas web. Es literalmente
+	  el lenguaje de la web.
+	- Mediante JavaScript las actualizaciones se muestran en tiempo real en los dispositivos.
+	- JavaScript agrega interactividad al front-end, de una página web.
+
+
+Programación en JavaScript	
+	- JavaScript puede ayudar a agregar varios comportamientos e interactividad en el navegador.
+	  También se puede utilizar para potenciar sitios web y comunicarse con bases de datos en un
+	  servidor o para crear aplicaciones móviles.
+
+
+Escribiendo tu primer código Javascript
+	- Para comentario simple se usa '//'. Para comentario multilínea se usa '/*'.
+	- Se usa el ';' para delimitar claramente partes del código de otras partes del código. El
+	  navegador tiene una función conocida como 'Inserción automática de punto y coma' (ASI).
+	- Tecla 'Enter': Ejecuta el código.
+	- Tecla 'Shift + Enter': Pasa a la siguiente línea.
+
+Variables
+	- Las variables permiten hacer que un mismo código produzca resultados diferentes, lo que
+	  hace que los programas sean versátiles.
+	- Para declarar una variable se escribe la palabra clave 'var'.
+	- Una variable se puede reasignar.
+
+Tipos de datos
+	- Hay 7 tipos de datos primitivos en JavaScript. Estos son string, number, Boolean, null,
+	  undefined, BigInt y symbol.
+
+Operadores
+	- Los operadores se utilizan para realizar operaciones con variables y valores, es decir,
+	  manipular elementos de datos individuales y devolver un resultado.
+	- Operadores matemáticos en JavaScript: +, -, *, /, **, %
+	- Operadores de comparación en JavaScript: <, >, <=, >=, ==, ===, !=, !==
+	- Operadores lógicos en JavaScript: &&, ||, !
+
+Números
+	- El tipo de dato number representa números enteros y decimales.
+	- Si no se utilizan paréntesis en un cálculo matemático, JavaScript seguirá la secuencia
+	  matemática estándar de cálculo
+
+Cadenas
+	- Una cadena en JavaScript es una colección de caracteres encerrados por delimitadores
+	  (comillas simples o dobles). Esta colección de caracteres se conoce como tipo de dato
+	  string.
+
+Booleanos
+	- El tipo de dato booleano se utiliza para comprobar si una afirmación es verdadera o falsa,
+	  con lo cual, el tipo de dato booleano tiene sólo dos valores posibles, True y False.
+	- El operador de igualdad '==' solo comprueba que los valores de las variables sean iguales.
+	  El operador de igualdad estricto '===' comprueba que el valor y el tipo de las variables
+	  sean iguales.
+	- El operador de desigualdad '!=' solo comprueba que los valores de las variables no sean
+	  iguales.
+	- El operador de desigualdad estricto '!==' comprueba que el valor y el tipo de las variables
+	  no sean iguales.
+-->
+
+
+
+<!-- -----Condicionales y bucles----- -->
+<!--
+Escribiendo declaraciones
+	- En JavaScript, hay fragmentos de código llamados condicionales, usados para ejecutar
+	  código de forma condicional en función de si algo es verdadero o falso.
+	- La declaración 'if' verifica una condición y ejecutará un bloque de código si la
+	  condición es verdadera. La declaración 'if' se suele complementar con 'else if' y 'else'.
+
+Trabajando con declaraciones condicionales
+	- El múltiple uso de una declaración 'if-else' se puede reemplazar por 'switch'.
+
+// Primera forma de solución: condicionales
+var place = 'first';
+
+if(place=='first'){
+    console.log('Gold')
+}
+else if (place=='first'){
+    console.log('Silver')
+}
+else if (place=='third'){
+    console.log('Bronze')
+}
+else{
+    console.log('No medal')
+}
+
+// Segunda forma de solución: switch
+var place = 'first';
+
+switch(place){
+    case 'first':
+        console.log('Gold');
+        break;
+    case 'second':
+        console.log('Silver');
+        break;
+    case 'third':
+        console.log('Bronze');
+        break;
+    default:
+        console.log('No medal');
+}
+
+Construcciones en bucle
+	- Los bucles son similares a los condicionales y se debe cumplir una condición para que se
+	  ejecute el código.
+
+Bucle for
+	- El estado inicial, final e incremento de la variable a usar como contador se declara
+	  junto al bucle.
+
+for (var i=1; i<=3; i++){
+    console.log(i)
+}
+console.log('Go')
+
+
+Bucle while
+	- El estado inicial del contador se declara antes del bucle, el estado final junto al bucle
+	  y el incremento se declara dentro del cuerpo del bucle.
+
+var counter=3
+while (counter>0){
+    console.log(counter);
+    counter=counter-1;
+}
+console.log('Happy New Year!')
+
+Bucles anidados
+	- En JavaScript es posible anidar bucles dentro de otros bucles para poder realizar varias
+	  tareas a la vez. También puede haber varios niveles de anidamiento.
+	- Si bien los bucles anidados son una forma de solución a ciertos problemas, pueden consumir
+	  muchos recursos.
 -->
