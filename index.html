@@ -35,7 +35,7 @@ Alojamiento web
 
 <!-- -----Tecnologías básicas de Internet----- -->
 <!--
-    Introducción a los protocolos de Internet
+Introducción a los protocolos de Internet
 	- Los datos que se envían por las redes entre computadoras a través de Internet se
 	  entienden gracias al Protocolo de Internet. La versión cuatro y la versión seis
 	  son actualmente los dos estándares de protocolo de Internet más utilizados.
@@ -639,4 +639,157 @@ Bucles anidados
 	  tareas a la vez. También puede haber varios niveles de anidamiento.
 	- Si bien los bucles anidados son una forma de solución a ciertos problemas, pueden consumir
 	  muchos recursos.
+-->
+
+
+
+<!--SEMANA 2-->
+
+<!-- -----Arrays, objetos y funciones----- -->
+<!--
+Funciones
+	- En una función se puede tomar varias líneas de código que realizan un conjunto de
+	  acciones y luego agruparlas bajo una sola etiqueta. Cuando se requiera ejecutar el código
+	  guardado, simplemente se invoca a la función, y puede hacerse tantas veces como se desee.
+	- Para declarar una función se usa la palabra clave function, luego el espacio y luego el
+	  nombre de la función (que puede ser casi cualquiera). Finalmente se colocan las llaves
+	  y en su interior va el cuerpo de la función.
+
+Almacenamiento de datos en arrays
+	- Los arrays indican que todos los valores asignados pertenecen a un grupo. Estos valores
+	  están ordenados en una secuencia y se puede acceder a cada uno a través de su número de
+	  índice en esa secuencia.
+	- Para crear un array se hace uso de un corchete de apertura seguido de uno de cierre.
+
+Construyendo y llamando funciones
+function listArrayItems(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        console.log(i+1, arr[i])
+    }
+}
+var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink'];
+listArrayItems(colors);
+
+Practicando con funciones
+function letterFinder(word, match){
+    for (var i=0; i<word.length; i++){
+        if (word[i]==match){
+            console.log('Found the', match, 'at', i)
+        }
+        else{
+            console.log('---No match found at', i)
+        }
+    }
+}
+letterFinder('test','t')
+
+Introducción a objetos
+	- Los objetos pueden describirse como colecciones de propiedades relacionadas donde cada
+	  propiedad se representa como un par clave-valor.
+	- Algunas notaciones para crear un objeto son: 'Dot Notation' y 'Brackets Notation'. 
+	- Una vez creado un objeto, aún puede actualizarlo agregándole nuevas propiedades.
+// Creación de un objeto usando Dot Notation
+var house = {};
+house.rooms = 4;
+house.color = "pink";
+house.priceUSD = 12345;
+console.log(house)
+// Creación de un objeto usando Brackets Notation
+var house = {};
+house["rooms"] = 4;
+house['color']= "pink";
+house["priceUSD"] = 12345;
+house["number of doors"] = 5
+console.log(house);
+
+Los arrays son objetos
+	- En JavaScript, los arrays son objetos, esto significa que los arrays tienen algunas
+	  propiedades y métodos integrados o propios, como 'push()' y 'pop()'.
+
+Objetos matemáticos
+	- Constantes numéricas: 'Math.PI', 'Math.E', 'Math.LN10', 'Math.LN2'
+	- Métodos de redondeo: 'Math.ceil()', 'Math.floor()', 'Math.round()', 'Math.trunc()'
+	- Métodos aritméticos y de cálculo: 'Math.pow()', 'Math.sqrt()', 'Math.cbrt()',
+	  'Math.abs()', 'Math.min()', 'Math.max()', 'Math.sin()', 'Math.cos()', 'Math.tan()'
+
+Una mirada más cercana a los strings
+	- En JavaScript un iterable es cualquier tipo de dato que se puede iterar usando un bucle
+	  'for'. Algunos de los tipos de datos sobre los que puede iterar son arrays y strings.
+	- Un string tiene un comportamiento similare a un array, pero no son iguales, ya que todos
+	  los métodos de un array no son aplicables a un string.
+
+Hoja de referencia de strings
+	- Algunas de las propiedades y métodos más comunes y útiles disponibles en cadenas son:
+	  'length', 'charAt()', 'concat()', 'toUpperCase()', 'toLowerCase()', 'indexOf()',
+	  'lastIndexOf()', 'split()'.
+
+Typeof
+	- El operador 'typeof' acepta y evalúa un parámetro y devuelve el nombre del tipo de dato
+	  representado como string.
+-->
+
+
+
+<!-- -----Manejo de errores----- -->
+<!--
+Bugs y errors
+	- Cuando ocurre un bug, el programa continúa ejecutándose, pero se comporta de una manera
+	  no deseada. Cuando ocurre un error, el programa deja de ejecutarse como resultado de un
+	  error.
+
+Bloques try-catch
+	- Son declaraciones integradas para ayudar a que el código continúe ejecutándose, incluso
+	  si ocurre un error. Este proceso se conoce más comúnmente como manejo de errores
+	- El bloque 'try' comienza con la palabra clave 'try' y dentro de las llaves se coloca el
+	  código que se cree que arrojará un error. El bloque 'catch' detecta el error producido
+	  en el bloque 'try'.
+
+Errores de sintaxis, lógicos y de tiempo de ejecución
+	- Algunos de los errores más comunes en JavaScript son: ReferenceError, SyntaxError,
+	  TypeError, RangeError, AggregateError, Error, InternalError y URIError.
+
+Valores undefined, null y empty
+	- 'Null' representa la ausencia intencional de cualquier valor de objeto y también es un
+	  valor de retorno de algunos métodos JavaScript integrados.
+	- Todas las funciones devuelven 'undefined' de forma predeterminada, a menos que se haya
+	  decidido devolver un valor específico. Un valor 'undefined' también aparece cuando se
+	  declara una variable sin asignación.
+	- Un empty string es cuando se declara la cadena y solo se le asigna las comillas, sin
+	  caracter alguno en su interior.
+
+Prevención de error
+function addTwoNums(a,b) {
+    try {
+        if(typeof(a) != 'number') {
+            throw new ReferenceError('the first argument is not a number')
+        } else if (typeof(b) != 'number') {
+            throw new ReferenceError('the second argument is not a number')
+        } else {
+            console.log(a + b)
+        }
+    } catch(err) {
+        console.log("Error!", err)
+    }
+}
+addTwoNums(5, "5")
+console.log("It still works")
+
+Programación defensiva
+function letterFinder(word, match) {
+    var condition1 = typeof(word) == 'string' && word.length >= 2;
+    var condition2 = typeof(match) == 'string' && match.length == 1;
+    if(condition1 && condition2) {
+        for(var i = 0; i < word.length; i++) {
+            if(word[i] == match) {
+                console.log('Found the', match, 'at', i)
+            } else {
+                console.log('---No match found at', i)
+            }
+        }
+    } else {
+        console.log("Please pass correct arguments to the function")
+    }
+}
+letterFinder([],[])
+letterFinder("cat","c")
 -->
