@@ -793,3 +793,135 @@ function letterFinder(word, match) {
 letterFinder([],[])
 letterFinder("cat","c")
 -->
+
+
+
+<!--SEMANA 3-->
+
+<!-- -----Introducción a la programación funcional----- -->
+<!--
+Introducción a la programación funcional
+	- Los lenguajes informáticos tienen varios estilos de desarrollarse, también conocidos como
+	  paradigmas de programación.
+	- En programación, existen dos paradigmas comúnmente utilizados: la programación funcional
+	  (a veces abreviada como FP) y la programación orientada a objetos (a veces abreviada como
+	  OOP).
+	- En la programación funcional, los datos y las funciones que trabajan con esos datos no se
+	  combinan dentro de objetos.
+	- En la programación orientada a objetos se combinan datos y funciones en objetos.
+var currencyOne=100;
+var currencyTwo=0;
+var exchangeRate=1.2;
+
+function convertCurrency(amount, rate){
+    return amount*rate;
+}
+
+currencyTwo=convertCurrency(currencyOne,exchangeRate)
+
+Llamada a funciones y recursividad
+	- Llamar, invocar o ejecutar una función significa indicarle que siga el código que
+	  contiene una línea a la vez.
+	- Cuando una función se llama a sí misma, esto es lo que se conoce como recursividad. La
+	  recursividad es una forma alternativa de ejecutar código repetitivo sin el uso de bucles.
+// Ejemplo 1
+function example1(){
+    console.log('line one');
+    console.log('line two');
+    console.log('line three');
+}
+example1()
+
+// Ejemplo 2
+let counter=3;
+function example2(){
+    console.log(counter);
+    counter=counter-1;
+    if(counter==0){
+        return;
+    }
+    example2();
+}
+example2()
+
+Introducción al scope
+	- El scope tiene que ver con la accesibilidad del código. Determina qué partes del código
+	  son accesibles y qué partes son inaccesibles. Algunos tipo de scope son: global y local.
+	- el código que existe fuera de una función se conoce como global scope y todo el código
+	  dentro de una función se conoce como local scope o scope de función.
+	- Las variables creadas dentro del ámbito local no se pueden leer mediante código en el
+	  nivel de ámbito global. Sólo son accesibles para funciones ubicadas dentro del ámbito
+	  local.
+
+
+El paradigma de la programación funcional
+	- Hay muchos conceptos e ideas en programación funcional. Algunos de los más importantes
+	  son: funciones 'first-class', funciones 'higher-order' y funciones 'pure'.
+	- A menudo se dice que las funciones en JavaScript son "first-class citizens", lo que
+	  significa que una función en JavaScript es simplemente otro valor al que se puede
+	  pasar a otras funciones, guardar en una variables y retornar de otras funciones.
+	- Una función 'higher-order' es una función que tiene una o ambas de las siguientes
+	  características: acepta otras funciones como argumentos y/o devuelve funciones cuando
+	  se invoca.
+	- Una función 'pure' devuelve exactamente el mismo resultado siempre que se le den los
+	  mismos valores.
+
+Tarea de programación
+// Lab1: Building a functional program
+// Task 1: Build a function-based console log message generator
+function consoleStyler(color, background, fontSize, txt) {
+    var message = "%c" + txt;
+    var style = `color: ${color};`
+    style += `background: ${background};`
+    style += `font-size: ${fontSize};`
+    console.log(message, style);
+}
+
+// Task 2: Build another console log message generator
+function celebrateStyler(reason) {
+    var message;
+    var style;
+    var fontStyle = "color: tomato; font-size: 50px";
+    if (reason == "birthday") {
+        console.log(`%cHappy birthday`, fontStyle);
+    }
+    else if (reason == "champions") {
+        console.log(`%cCongrats on the title!`, fontStyle);
+    }
+    else {
+        console.log(message, style);
+    }
+}
+
+// Task 3: Run both the consoleStyler and the celebrateStyler functions
+consoleStyler('#1d5c63', '#ede6db', '40px', 'Congrats!');
+celebrateStyler('birthday');
+
+// Task 4: Insert a congratulatory and custom message
+var color;
+var background;
+var fontSize;
+var txt;
+var reason;
+function styleAndCelebrate() {
+    consoleStyler(color, background, fontSize, txt);  
+    celebrateStyler(reason);
+}
+// Call styleAndCelebrate
+styleAndCelebrate('ef7c8e', 'fae8e0', '30px', 'You made it!', 'champions');
+
+Scoping con var, let y const
+	- El block scope establece que solo se puede acceder a una variable declarada en un bloque
+	  de código dentro de ese bloque. El resto del código fuera del bloque de código no puede
+	  acceder a él. El block scope se construye cuando se declara variables usando let o const.
+	- Antes de ES6, la única forma de declarar una variable en JavaScript era utilizar la
+	  palabra clave 'var'.
+	- Un variable tipo 'var' se puede usar en el código incluso antes de declararlo. Además,
+	  se puede redeclarar la misma variable.
+	- A una variable tipo 'let' no se puede acceder antes de declararla, pero sí se le puede
+	  reasignar.
+	- A una varible tipo 'const' no se puede acceder antes de inicializarla ni tampoco se le
+	  puede redeclarar.
+	- La mejor elección y uso de un tipo de variable generalmente depende de si reasignará
+	  valores o no.
+-->
