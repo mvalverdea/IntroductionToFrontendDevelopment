@@ -925,3 +925,309 @@ Scoping con var, let y const
 	- La mejor elección y uso de un tipo de variable generalmente depende de si reasignará
 	  valores o no.
 -->
+
+
+
+<!-- -----Introducción a la programación orientada a objetos----- -->
+<!--
+Introducción a la programación orientada a objetos
+	- La OOP gira en torno a la idea de organizar los programas utilizando objetos para agrupar
+	  datos y funcionalidades relacionados.
+	- La palabra clave 'this' permite no preocuparse por el nombre de los objetos actuales.
+	- Una solución más eficiente y usada que la palabra clave 'this', son las clases.
+
+Clases
+	- Una clase es como una especie de plano que se puede usar repetidamente para construir
+	  nuevos objetos de cierto tipo, tantas veces como se desee.
+	- En JavaScript, cualquier clase se construye usando la palabra clave 'class', seguida del
+	  nombre de la clase que comienza con una letra mayúscula y un par de llaves, en donde se
+	  coloca la función 'constructor' y que acepta tantos parámetros como sean necesarios.
+	- La función 'constructor' se encarga de asignar los parámetros pasados a las propiedades
+	  de los objetos futuros.
+	- Una vez definido el 'constructor', se puede agrega tantos métodos como se desee, en los
+	  que ya no es necesario usar la palabra clave 'function'.
+	- Una vez que la definición de clase esté lista, se puede comenzar a construir objetos de
+	  esa clase. Dichos objetos tendrán acceso a los métodos y propiedades de la clase.
+
+Principios de la programación orientada a objetos
+	- La programación orientada a objetos es un enfoque eficaz para encontrar soluciones en el
+	  código que escribe.
+	- Algunas ventajas de la OPP son: permite escribir código modular, vuelve el código sea más
+	  flexible y hace que el código sea reutilizable.
+	- Los 4 principios fundamentales de la OOP: herencia, encapsulación, abstracción y
+	  polimorfismo. La herencia se refiere a que una o más subclases heredan las propiedades de
+	  un clase base o superclase.
+	- Para crear un objeto de una clase se puede usar el método 'Object.create()' o la palabra
+	  clave 'new'. Todos los objetos derivan de la superclase 'Object'.
+	- La herencia se refiere a que una o más subclases heredan las propiedades de una clase base
+	  o superclase. Para configurar la relación de herencia entre clases en JavaScript, se usa
+	  la palabra clave 'extends'.
+	- La encapsulación tiene que ver con hacer que una implementación de código esté "oculta"
+	  para otros usuarios, en el sentido de que no tienen que saber cómo funciona el código
+	  para "consumir" el código.
+	- La abstracción consiste en escribir código de una manera que lo haga más generalizado.
+	- El polimorfismo se refiere a que un método puede tener exactamente diferents usos, según
+	  el objeto para el que se utilice.
+
+Constructores
+	- Un 'constructor' es una función especial que permite crear instancias de objetos nativos
+	  integrados. Todos los constructores se nombran con la primera letra en mayúscula.
+	- No todos los objetos integrados vienen con una función constructora.
+	- Además de las funciones constructoras para los objetos integrados, también se puede
+	  definir funciones constructoras personalizadas.
+
+Herencia
+	- El modelo de herencia en JavaScript se basa en el objeto prototipo.
+	- En JavaScript, el prototipo es un objeto que puede contener propiedades que pueden
+	  compartir varios otros objetos.
+	- Aunque es posible crear herencia usando el método 'Object.create()', es mejor usar la
+	  sintaxis de clases para herencia y objetos más complejos.
+
+var bird = {
+    hasWings: true,
+    canFly: true,
+    hasFeathers: true
+}
+
+var eagle1 = Object.create(bird);
+console.log("eagle1:", eagle1);
+
+console.log("eagle1 has wings:", eagle1.hasWings);
+console.log("eagle1 can fly:", eagle1.canFly);
+console.log("eagle1 has hasFeathers:", eagle1.hasFeathers);
+
+var eagle2 = Object.create(bird);
+console.log("eagle2 has wings:", eagle2.hasWings);
+
+var penguin1 = Object.create(bird);
+penguin1.canFly = false;
+console.log("penguin1:", penguin1);
+console.log("penguin1 has feathers:", penguin1.hasFeathers);
+console.log("penguin1 can fly:", penguin1.canFly);
+
+Creando clases
+	- Todos los objetos que se construyen a partir del prototipo comparten la misma
+	  funcionalidad.
+	- Una clase se suele usar cuando se necesita codificar relaciones OOP complejas.
+
+class StationaryBike {
+    constructor(position, gears) {
+        this.position = position
+        this.gears = gears
+    }
+}
+
+class Treadmill {
+    constructor(position, modes) {
+        this.position = position
+        this.modes = modes
+    }
+}
+
+class Gym {
+    constructor(openHrs, stationaryBikePos, treadmillPos) {
+        this.openHrs = openHrs
+        this.stationaryBike = new StationaryBike(stationaryBikePos, 8)
+        this.treadmill = new Treadmill(treadmillPos, 5)
+    }
+}
+
+var boxingGym = new Gym("7-22", "right corner", "left corner")
+
+console.log(boxingGym.openHrs)
+console.log(boxingGym.stationaryBike)
+console.log(boxingGym.treadmill)
+
+Parámetros predeterminados
+	- Una característica útil de ES6 es que permite establecer un parámetro predeterminado
+	  dentro de la definición de una función.
+	- Los parámetros predeterminados permiten crear una función que se ejecutará con valores
+	  de argumento predeterminados incluso si no le pasa ningún argumento.
+
+class WithDefaultParams {
+    constructor(num1 = 1, num2 = 2, num3 = 3, string1 = "Result:", bool1 = true) {
+        this.num1 = num1;
+        this.num2 = num2;
+        this.num3 = num3;
+        this.string1 = string1;
+        this.bool1 = bool1;
+    }
+    calculate() {
+        if(this.bool1) {
+            console.log(this.string1, this.num1 + this.num2 + this.num3);
+            return;
+        }
+        return "The value of bool1 is incorrect"
+    }
+}
+var better = new WithDefaultParams();
+better.calculate();
+
+Diseñando un OOP
+	- Hay dos palabras clave que son esenciales para la OOP con clases en JavaScript. Estas
+	  palabras clave son 'extends' y 'super'.
+	- La palabra clave 'extends' permite heredar de una clase existente.
+	- La palabra clave 'super' permite "tomar prestada" la funcionalidad de una superclase,
+	  en una subclase.
+
+class Animal {
+    constructor(color = 'yellow', energy = 100) {
+        this.color = color;
+        this.energy = energy;
+    }
+    isActive() {
+        if(this.energy > 0) {
+            this.energy -= 20;
+            console.log('Energy is decreasing, currently at:', this.energy)
+        } else if(this.energy == 0){
+            this.sleep();
+        }
+    }
+    sleep() {
+        this.energy += 20;
+        console.log('Energy is increasing, currently at:', this.energy)
+    }
+    getColor() {
+        console.log(this.color)
+    }
+}
+
+class Cat extends Animal {
+    constructor(sound = 'purr', canJumpHigh = true, canClimbTrees = true, color, energy) {
+        super(color, energy);
+        this.sound = sound;
+        this.canClimbTrees = canClimbTrees;
+        this.canJumpHigh = canJumpHigh;
+    }
+    makeSound() {
+        console.log(this.sound);
+    }
+}
+
+class Bird extends Animal {
+    constructor(sound = 'chirp', canFly = true, color, energy) {
+        super(color, energy);
+        this.sound = sound;
+        this.canFly = canFly;
+    }
+    makeSound() {
+        console.log(this.sound);
+    }
+}
+
+class HouseCat extends Cat {
+    constructor(houseCatSound = "meow", sound,canJumpHigh,canClimbTrees, color,energy) {
+        super(sound,canJumpHigh,canClimbTrees, color,energy);
+        this.houseCatSound = houseCatSound;
+    }
+    makeSound(option) {
+        if (option) {
+            super.makeSound();
+        }
+        console.log(this.houseCatSound);
+    }
+}
+
+class Tiger extends Cat {
+    constructor(tigerSound = "Roar!", sound,canJumpHigh,canClimbTrees, color,energy) {
+        super(sound,canJumpHigh,canClimbTrees, color,energy);
+        this.tigerSound = tigerSound;
+    }
+    makeSound(option) {
+        if (option) {
+            super.makeSound();
+        }
+        console.log(this.tigerSound);
+    }
+}
+
+class Parrot extends Bird {
+    constructor(canTalk = false, sound,canFly, color,energy) {
+        super(sound,canFly, color,energy);
+        this.canTalk = canTalk;
+    }
+    makeSound(option) {
+        if (option) {
+            super.makeSound();
+        }
+        if (this.canTalk) {
+            console.log("I'm a talking parrot!");
+        }
+    }
+}
+
+var fiji = new Parrot(false);
+var polly = new Parrot(true);
+
+fiji.makeSound();
+fiji.makeSound(true);
+
+polly.makeSound();
+polly.makeSound(true);
+
+polly.color;
+polly.energy;
+
+polly.isActive();
+
+var penguin = new Bird("shriek", false, "black and white", 200);
+penguin;
+
+penguin.sound;
+penguin.canFly;
+penguin.color;
+penguin.energy;
+penguin.isActive();
+
+var leo = new HouseCat();
+
+leo.makeSound(false);
+leo.makeSound(true);
+
+var cuddles = new Tiger();
+cuddles.makeSound(false);
+cuddles.makeSound(true);
+
+Tarea de programación
+// Lab1: Building an object-oriented program
+// Task 1: Code a Person class
+class Person {
+    constructor(name = "Tom", age = 20, energy = 100) {
+        this.name = name;
+        this.age = age;
+        this.energy = energy;
+    }
+    sleep() {
+        this.energy += 10
+    }
+    doSomethingFun() {
+        this.energy -= 10
+    }
+}
+// Task 2: Code a Worker class
+class Worker extends Person {
+    constructor(name, age, energy, xp = 0, hourlyWage = 10) {
+        super(name, age, energy);
+        this.xp = xp;
+        this.hourlyWage = hourlyWage;
+    }
+    goToWork() {
+        this.xp += 10
+    }
+}
+// Task 3: Code an intern object, run methods
+function intern() {
+    let intern = new Worker("Bob", 21, 110, 0, 10);
+    intern.goToWork();
+    return intern;
+}
+console.log(intern());
+
+// Task 4: Code a manager object, methods
+function manager() {
+    let manager = new Worker ("Alice", 30, 120, 100, 30)
+    manager.doSomethingFun();
+    return manager;
+}
+console.log(manager());
+-->
