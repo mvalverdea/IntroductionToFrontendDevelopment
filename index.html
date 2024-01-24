@@ -1231,3 +1231,210 @@ function manager() {
 }
 console.log(manager());
 -->
+
+
+
+<!-- -----Funciones avanzadas de JavaScript----- -->
+<!--
+Desestructuración de matrices y objetos
+	- Los objetos JavaScript pueden tener propiedades que definen sus características.
+	- Desestructurar es como pasar un elemento de un archivo a otra ubicación, pero el elemento
+	  sigue estando en el archivo original y la copia es independiente del archivo original.
+	- En JavaScript, es posible extraer las propiedades de los objetos en distintas variables
+	  mediante la desestructuración.
+	- Solo se puede desestructurar algo que ya existe en un objeto.
+
+Bucles 'for of' y objetos
+	- Un bucle 'for of' no puede funcionar directamente en un objeto, ya que un objeto no es
+	  iterable.
+	- Para recorrer objetos, se aprovecha la ventaja de que un bucle 'for of' se puede ejecutar
+	  en arrays. Esto se hace mediante 3 métodos integrados: 'Object.keys()', 'Object.values()'
+	  y 'Object.entries()'.
+	- El método 'Object.keys()' recibe el objeto que se desea recorrer como parámetro y retorna
+	  las llaves de las propiedades en formato array de strings.
+	- El método 'Object.values()' recibe el objeto que se desea recorrer como parámetro y
+	  retorna los valores de las propiedades en formato array.
+	- El método 'Object.entries()' recibe el objeto que se desea recorrer como parámetro y
+	  retorna las llaves y los valores de las propiedades en formato array de arrays.
+	- El bucle 'for-of' no itera sobre el objeto y sus propiedades prototipo.
+	- El bucle 'for-of' itera sobre las propiedades del objeto solo cuando se utiliza el método
+	  'Object.keys()' para devolver un array a recorrer.
+	- El bucle 'for-in' recorre las propiedades del objeto y de su prototipo.
+
+const car2 = {
+    speed: 200,
+    color: "red"
+}
+console.log(Object.keys(car2));
+
+const car3 = {
+    speed: 300,
+    color: "yellow"
+}
+console.log(Object.values(car3));
+
+const car4 = {
+    speed: 400,
+    color: 'magenta'
+}
+console.log(Object.entries(car4));
+
+function testBracketsDynamicAccess() {
+    var dynamicKey;
+    if(Math.random() > 0.5) {
+        dynamicKey = "speed";
+    }
+    else {
+        dynamicKey = "color";
+    }
+    var drone = {
+        speed: 15,
+        color: "orange"
+    }
+    console.log(drone[dynamicKey]);
+}
+testBracketsDynamicAccess();
+
+const car = {
+    engine: true,
+}
+
+const sportsCar = Object.create(car);
+sportsCar.speed = "fast";
+console.log("The sportsCar object: ", sportsCar);
+
+for (prop in sportsCar) {
+    console.log(':(', prop);
+}
+
+for (prop of Object.keys(sportsCar)) {
+    console.log(':)', prop + ": " + sportsCar[prop]);
+}
+
+Ejemplos de literales de plantilla
+	- Los 'template literals' son una forma alternativa de trabajar con strings. Hasta antes de
+	  la versión ES6, la única forma de crear strings en JavaScript era delimitarlas entre
+	  comillas simples o dobles. ES6 introdujo el uso de caracteres de comillas invertidas (``)
+	  como delimitadores. A esta forma se le conoce como 'template string' o 'template literal'.
+	- Con los 'template literals' se puede incrustar una expresión en un 'placeholder'. Un
+	  'placeholder' está representado por ${}, donde todo lo que esté dentro de las llaves se
+	  trata como JavaScript y todo lo que está fuera de las llaves se trata como un string.
+	- Algunas de las ventajas de los 'templates literals' son: permitir la interpolación
+	  variable, permitir abarcar varias líneas y evaluar expresiones.
+
+let greet1 = "Hello";
+let place1 = "World";
+console.log(`${greet1} ${place1}!`)
+
+console.log(`Hello
+World!`)
+
+console.log(`${1 + 1 + 1 + 1 + 1} stars!`)
+
+Tarea de programación
+// Lab1: Array and object iteration
+// Task 1
+var dairy = ['cheese', 'sour cream', 'milk', 'yogurt', 'ice cream', 'milkshake']
+
+function logDairy() {
+    for (item of dairy) {
+        console.log(item)
+    }
+}
+logDairy();
+
+// Task 2
+const animal = {
+    canJump: true
+};
+
+const bird = Object.create(animal);
+bird.canFly = true;
+bird.hasFeathers = true;
+
+function birdCan() {
+    for (prop1 of Object.keys(bird)) {
+        console.log(prop1 + ": " + bird[prop1]);
+    }
+}
+birdCan();
+
+// Task 3
+function animalCan() {
+    for (prop2 in bird) {
+        console.log(prop2 + ": " + bird[prop2]);
+    }
+}
+animalCan();
+
+Estructuras de datos
+	- Una estructura de datos es una forma de organizar datos. Algunas de las estructuras de
+	  datos más comunes de JavaScript son objects, arrays, maps y sets.
+	- La solución a una tarea de codificación depende de la estructura de datos que se utilice.
+	- JavaScript es algo limitado en los tipos de estructuras de datos disponibles en
+	  comparación con otros lenguajes de programación.
+	- Un object es una colección desordenada y no iterable de pares clave-valor.
+	- Un array que es una colección ordenada e iterable de valores.
+	- Un map es como un array porque es iterable, sin embargo, consta de pares clave-valor.
+	- Un set es una colección donde cada elemento de la colección debe ser único.
+
+const veggies = ['onion', 'garlic', 'potato'];
+veggies.forEach(function(veggie, index) {
+    console.log(`${index}. ${veggie}`);
+});
+
+const result = [];
+const drone = {
+    speed: 100,
+    color: 'yellow'
+}
+const droneKeys = Object.keys(drone);
+droneKeys.forEach(function(key) {
+    result.push(key, drone[key])
+})
+console.log(result)
+
+let bestBoxers = new Map();
+bestBoxers.set(1, "The Champion");
+bestBoxers.set(2, "The Runner-up");
+bestBoxers.set(3, "The third place");
+console.log(bestBoxers);
+
+const repetitiveFruits = ['apple','pear','apple','pear','plum', 'apple'];
+const uniqueFruits = new Set(repetitiveFruits);
+console.log(uniqueFruits);
+
+Operador 'spread'
+	- El operador 'spread' permite pasar todos los elementos de un array a una función sin
+	  tener que escribirlos todos individualmente. El operador 'spread' incluirá todos los
+	  elementos del array con mucho menos código.
+	- Es el método más corto y sencillo para copiar las propiedades de un objeto en un objeto
+	  recién creado.
+
+Operador 'rest'
+	- El operador 'rest' permite tomar elementos de un array y usarlos para crear un subarray
+	  separado. El operador 'rest' se puede utilizar para desestructurar elementos de arrays
+	  existentes, en lugar de escribirlos nuevamente.
+	- En caso de usarse, el parámetro 'rest' debe ser el último parámetro en la definición de
+	  una función.
+
+Usando los operadores 'spread' y 'rest'
+
+const fruits = ['apple', 'pear', 'plum']
+const berries = ['blueberry', 'strawberry']
+const fruitsAndBerries = [...fruits, ...berries]
+console.log(fruitsAndBerries);
+
+const flying = { wings: 2 }
+const car = { wheels: 4 }
+const flyingCar = {...flying, ...car}
+console.log(flyingCar)
+
+let veggies = ['onion', 'parsley'];
+veggies = [...veggies, 'carrot', 'beetroot'];
+console.log(veggies);
+
+const greeting = "Hello";
+const arrayOfChars = [...greeting];
+console.log(arrayOfChars);
+-->
