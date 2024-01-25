@@ -1438,3 +1438,264 @@ const greeting = "Hello";
 const arrayOfChars = [...greeting];
 console.log(arrayOfChars);
 -->
+
+
+
+<!-- -----JavaScript en el navegador----- -->
+<!--
+Módulos de JavaScript
+	- Los módulos de JavaScript son unidades de código independientes que se pueden reutilizar
+	  una y otra vez. Ser independiente significa que se pueden agregar al programa, eliminar
+	  y reemplazar con otros módulos y todo seguirá funcionando.
+
+Manipulación DOM de JavaScript
+	- El DOM (modelo de objeto del documento) es una representación en memoria del documento
+	  HTML activo. Cualquier cambio realizado es local y no afecta el documento almacenado en
+	  el servidor web.
+	- El DOM tiene la forma de un objeto JavaScript con objetos anidados para diferentes partes
+	  de la página. Estos objetos tienen sus propios objetos anidados hasta que todo el archivo
+	  HTML está mapeado en lo que parece una estructura de árbol.
+	- El DOM da a los desarrolladores la capacidad de poder manipular y actualizar páginas web.
+	- El navegador crea automáticamente el DOM para cada página web que descarga.
+	- Se puede interactuar con el DOM de la página web actualmente activa utilizando una GUI
+	  (interfaz gráfica de usuario) o mediante código JavaScript.
+
+const h2 = document.createElement('h2')
+h2.innerText = "This is an h2 heading"
+h2.setAttribute('id', 'sub-heading')
+h2.setAttribute('class', 'secondary')
+document.body.appendChild(h2)
+
+Selectores de JavaScript
+	- Algunos selectores DOM de JavaScript son: 'querySelector()', 'querySelectorAll()',
+	  'getElementById()' y 'getElementsByClassName()'.
+
+document
+document.querySelector('p')
+document.querySelector('a')
+document.querySelectorAll('p')
+document.getElementById('heading')
+document.getElementsByClassName('txt')
+
+
+Manipulación de eventos
+	- Los eventos suceden todo el tiempo.
+	- Se puede utilizar código JavaScript para detectar estos eventos. Incluso se puede elegir
+	  las partes de la página en las que se están detectando eventos.
+	- En JavaScript, la función que maneja los eventos capturados se conoce como controlador
+	  de eventos.
+	- Además del método 'addEventListener', una forma alternativa de detectar eventos es
+	  mediante el uso de atributos de eventos HTML.
+
+// Primera forma
+const target = document.querySelector('body')
+function handleClick1() {
+    console.log('Clicked the body')
+}
+target.addEventListener('click', handleClick1)
+
+// Segunda forma
+function handleClick2() {
+    console.log('Clicked the heading')
+}
+<h1 onclick="handleClick2()">Example Domain</h1>
+
+Actualización del contenido de la página web
+
+var h1 = document.createElement('h1')
+h1.innerText = "Type into the input to make this text change"
+
+var input = document.createElement('input')
+input.setAttribute('type', 'text')
+
+document.body.innerText = '';
+document.body.appendChild(h1);
+document.body.appendChild(input);
+
+input.addEventListener('change', function() {
+    h1.innerText = input.value
+})
+
+Captura de datos
+
+var h1 = document.querySelector('h1')
+var arr = [
+    'Example Domain',
+    'First Click',
+    'Second Click',
+    'Third Click'
+]
+function handleClicks() {
+    switch(h1.innerText) {
+        case arr[0]:
+            h1.innerText = arr[1]
+            break
+        case arr[1]:
+            h1.innerText = arr[2]
+            break
+        case arr[2]:
+            h1.innerText = arr[3]
+            break
+        default:
+            h1.innerText = arr[0]
+    }
+}
+h1.addEventListener('click', handleClicks);
+
+Moviendo datos en la web
+	- Las dos razones principales por las que el formato 'JSON' (JavaScript Object Notation) se
+	  ha convertido en el formato de intercambio de datos dominante de hoy en día son dos: es
+	  muy liviano (con una sintaxis muy similar a "un objeto JavaScript encadenado") y es más
+	  fácil de manejar en código JavaScript, ya que, después de todo, todo el código JSON es
+	  JavaScript.
+	- Además de ser un formato de intercambio de datos, JSON también es un formato de archivo.
+
+Notación de objetos JavaScript - JSON
+	- JSON es básicamente solo un objeto representado en forma de cadena. Tiene algún formato
+	  específico, pero de todos modos es una cadena.
+	- Para trabajar con JSON, es común convertirlo nuevamente en un objeto JavaScript para
+	  trabajar con sus propiedades y métodos.
+	- También se puede convertir un objeto normal de JavaScript en una cadena JSON.
+
+const jsonStr = '{"greeting":"hello"}'
+const aPlainObj = JSON.parse(jsonStr)
+aPlainObj.greeting = 'hi'
+
+const data = {
+    firstName: "John",
+    lastName: "Doe",
+    greeting: "Hello",
+}
+JSON.stringify(data)
+-->
+
+
+
+<!--SEMANA 4-->
+
+<!-- -----Testeo----- -->
+<!--
+Otros entornos JavaScript: nodo y NPM
+	- 'Node.js' y 'NPM' (Node Package Manager) son entornos de JavaScript.
+	- Gracias a 'Node.js', es posible usar JavaScript en el frontend y backend para el desarrollo
+	  de un proyecto web.
+	- 'Node.js' viene con un administrador de paquetes llamado NPM.
+	- El administrador de paquetes permite utilizar una gran cantidad de librerías y frameworks
+	  como módulos de 'Node.js'. Un módulo NPM es un fragmento de código independiente que se ha
+	  publicado en el sitio web de NPM. A veces, un módulo NPM también se denomina paquete NPM.
+	- El comando 'node' se usa para ejecutar un archivo JavaScript o para ejecutar directamente
+	  código JavaScript. El comando 'npm' se usa para instalar cualquier módulo 'node' desde el
+	  repositorio NPM.
+
+¿Qué es el testeo?
+	- Una de las formas, pero no muy eficiente de probar si el código está correcto es mediante
+	  comentarios, especificando por ejemplo cual debería ser el resultado de un determinado
+	  fragmento de código. La principal desventaja es que puede haber problemas de ambigüedad.
+	- Hay muchos frameworks de prueba personalizados disponibles en JavaScript. Uno de los
+	  puntos fuertes de estos frameworks es que no hace falta utilizar comentarios para describir
+	  las expectativas, pues la sintaxis de prueba en sí misma se convierte en una documentación
+	  de expectativas.
+	- Las pruebas o testeos en JavaScript permiten verificar que la función se comporta de la
+	  forma prevista. Probar el código de esta manera garantiza 3 cosas: concisión, claridad y
+	  repetibilidad.
+	- El ciclo de prueba y refinamiento del código se conoce como el ciclo red-green-refactor.
+	  'red' hace referencia a cuando una prueba falla. 'green' se refiere a que la prueba pasa
+	  de forma satisfactoria. 'refactor' es el proceso en el que se escribe código para que se
+	  ejecute de manera más eficiente o que sea más fácil de leer, pero sin afectar los
+	  resultados que produce el código.
+
+Tipos de testeos
+	- Algunos tipos de pruebas son: 'End-to-end testing' o 'e2e', 'integration testing' y 'unit
+	  testing'.
+	- 'e2e' consiste en probar el producto terminado desde la perspectiva de un usuario. Los
+	  tipos de prueba 'e2e' son los más lentas y las que requieren más tiempo para configurarse
+	  y ejecutarse.
+	- 'integration' consiste en probar cómo interactúan partes de un sistema con otras partes del
+	  propio sistema, es decir, probar cómo funcionan juntas las partes separadas de una
+	  aplicación. Las pruebas 'integration' son más rápidas y económicas que las pruebas 'e2e',
+	  pero no tan rápidas ni tan económicas como las pruebas 'unit'.
+	- 'unit' es el proceso de probar las unidades más pequeñas del código fuente de forma
+	  aislada. Una unidad es el fragmento de código más pequeño que se puede probar por separado
+	  del resto de la aplicación. Prácticamente la unidad más pequeña de código testeable en Js
+	  suele ser una función o un método. Las pruebas 'unit' son las más rápidas de ejecutar y
+	  fáciles de escribir.
+
+Introducción a JEST
+	- JavaScript no tiene objetos ni métodos integrados que permitan escribir testeos. Por lo
+	  tanto, se han creado muchas librerías diferentes para abordar el tema del testeo. Uno de
+	  estos frameworks es JEST
+
+Escribiendo pruebas con JEST
+
+// Archivo principal
+function addFive(val) {
+    return val + 5;
+};
+module.exports = addFive;
+
+// Archivo de prueba
+const { default: TestRunner } = require("jest-runner");
+const addFive = require(`./addFive`)
+test('returns the number plus 5', () => {
+    expect(addFive(1)).toBe(6);
+})
+
+// Archivo package.json
+{
+  "name": "c2-w3p4---video-writingtestswithjest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "addFive.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
+
+Tarea de programación
+// Lab1: Escribiendo una prueba 'unit'
+// Arhivo timesTwo.js
+// Task 1: Code the timesTwo function declaration
+function timesTwo(number) {
+    return 2*number
+}
+// Task 2: Export the timesTwo function as a module
+module.exports = timesTwo;
+
+// Archivo timesTwo.test.js
+const timesTwo = require('./timesTwo');
+// Write the first test
+test('returns the number times 2', () => {
+    expect(timesTwo(10)).toBe(20);
+});
+
+// Archivo package.json
+{
+  "name": "jest-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
+
+TDD (Desarrollo basado en pruebas)
+	- Cada pieza de software se construye de acuerdo con requisitos formales o informales. El
+	  propósito de los requisitos es explicar, en lenguaje humano, las complejidades de lo que
+	  hace el software.
+	- Según el enfoque TDD, primero escribe la prueba, incluso antes de haber escrito cualquier
+	  implementación real.
+	- Con TDD se puede automatizar las pruebas fácilmente y así seguir verificando una y otra
+	  vez que el sistema funciona como se espera. También se minimizan las regresiones.
+-->
