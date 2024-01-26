@@ -1699,3 +1699,155 @@ TDD (Desarrollo basado en pruebas)
 	- Con TDD se puede automatizar las pruebas fácilmente y así seguir verificando una y otra
 	  vez que el sistema funciona como se espera. También se minimizan las regresiones.
 -->
+
+
+
+<!--SEMANA 5-->
+
+<!-- -----Evaluación calificada de fin de curso----- -->
+<!--
+Tarea de programación
+// Lab1: Little Lemon Receipt Maker
+// Given variables
+const dishData = [
+    {
+        name: "Italian pasta",
+        price: 9.55
+    },
+    {
+        name: "Rice with veggies",
+        price: 8.65
+    },
+    {
+        name: "Chicken with potatoes",
+        price: 15.55
+    },
+    {
+        name: "Vegetarian Pizza",
+        price: 6.45
+    },
+]
+const tax = 1.20;
+
+// Implement getPrices()
+function getPrices(taxBoolean) {
+    for (let dish of dishData) {
+        let finalPrice;
+
+        if (taxBoolean === true) {
+            finalPrice = dish.price * tax;
+        }
+        else if (taxBoolean === false) {
+            finalPrice = dish.price;
+        }
+        else {
+            console.log("You need to pass a boolean to the getPrices call!");
+            return;
+        }
+
+        console.log(`Dish: ${dish.name} Price: $${finalPrice}`)
+    }
+}
+
+// Implement getDiscount()
+function getDiscount(taxBoolean, guests) {
+    getPrices(taxBoolean);
+
+    let cond1 = typeof(guests) === "number";
+    let cond2 = guests > 0 && guests < 30;
+        
+    if (cond1 === true && cond2 === true) {
+        let discount = 0;
+        if (guests < 5) {
+            discount = 5;
+        }
+        else if (guests >= 5) {
+            discount = 10;
+        }
+        console.log(`Discount is: $${discount}`);
+        }
+        else {
+            console.log("The second argument must be a number between 0 and 30");
+        }
+}
+
+// Call getDiscount()
+getDiscount(true, 2);
+getDiscount(false, 10);
+-->
+
+
+
+
+
+<!--Version Control-->
+
+<!--SEMANA 1-->
+
+<!-- -----Introducción al control de versiones----- -->
+<!--
+¿Qué es el control de versiones?
+	- El control de version, también conocido como control de fuente o gestión de código fuente,
+	  es un sistema que registra todos los cambios y modificaciones de los archivos con fines de
+	  seguimiento. En otras palabras, el objetivo principal de cualquier sistema de control de
+	  versiones es realizar un seguimiento de los cambios.
+	- Para los desarrolladores, especialmente aquellos que trabajan en equipo, existen muchos
+	  beneficios asociados con el control de versiones, siendo algunos: historial de revisión,
+	  identidad, colaboración, automatización y eficiencia.
+
+Sistemas de control de versiones y herramientas
+	- Hay muchos sistemas de control de versiones diferentes disponibles, como por ejemplo:
+	  Subversion, Perforce, AWS Code Commit, Mercurial y Git.
+	- Los sistemas de control de versiones se pueden dividir en dos tipos o categorías: sistemas
+	  de control de versiones centralizados y sistemas de control de versiones distribuidos.
+	- Los sistemas de control de versiones centralizados (CVCS) contienen un servidor y un
+	  cliente. El servidor contiene el repositorio principal que alberga el historial completo
+	  de versiones del código base. En un CVCS, el servidor es la copia central del proyecto. El
+	  cliente tiene el código más reciente, pero cada operación debe tener una conexión con el
+	  servidor.
+	- Los sistemas de control de versiones distribuidos (DVCS) son similares al modelo CVCS. Aún
+	  necesita extraer el código del servidor para ver los últimos cambios. La diferencia clave
+	  es que cada usuario es esencialmente un servidor y no un cliente.
+	- La ventaja de CVCS es que se consideran más fáciles de aprender que sus homólogos
+	  distribuidos. También dan más controles de acceso a los usuarios. La desventaja es que
+	  pueden ser más lentos dado para que otros desarrolladores vean los cambios, estos deben
+	  ser confirmardos y enviardos a un servidor central. Es decir, es necesario establecer una
+	  conexión con el servidor para realizar cualquier acción.
+	- Con DVCS, no se necesita estar conectado al servidor para agregar cambios o ver el
+	  historial de un archivo. Sólo necesita conectarse al servidor para extraer los últimos
+	  cambios o para enviar sus propios cambios. Por lo tanto, la velocidad y el rendimiento
+	  también son mejores que los de su homólogo CVCS.
+
+Una historia del control de versiones
+	- Git se hizo popular en la comunidad de código abierto debido a su diseño VCS distribuido
+	  y a que Github ofrece alojamiento Git gratuito para proyectos de código abierto.
+	- Mercurial también es un VCS distribuido.
+
+Control de versiones en el desarrollo de software profesional
+	- Algunas herramientas y procedimientos complementarios del control de versiones para
+	  garantizar la calidad y la eficiencia durante todo el proceso de desarrollo de software
+	  son: flujo de trabajo, integración continua, entrega continua e implementación continua.
+	- El flujo de trabajo es esencial para garantizar que el código se administre correctamente
+	  y, a la vez reduce la aparición de errores.
+	- La integración continua se utiliza a menudo para compilar automáticamente el proyecto y
+	  ejecutar pruebas en cada cambio de código para garantizar que la compilación permanezca
+	  estable y evitar regresiones en la funcionalidad.
+	- La entrega continua es una extensión de la integración continua y se encarga de empaquetar
+	  automáticamente la aplicación y la prepara para su implementación.
+	- La implementación continua es una extensión de la entrega continua y su objetivo es
+	  implementar y lanzar software para los clientes de forma frecuente y segura.
+
+Un historial de revisiones
+	- El historial de revisiones es un registro de todos los cambios dentro de un proyecto.
+	  Permite identificar quién realizó los cambios, cuándo se realizaron y qué se cambió.
+	- Cuando se trabaja en un solo proyecto, suele haber cierto nivel de cruce entre los
+	  desarrolladores. Cuando esto ocurre, el historial de revisiones puede ayudar a los
+	  desarrolladores a ver el ciclo de vida completo de los cambios que se han producido.
+
+Ensayo vs producción
+	- Un entorno de ensayo imita el entorno de producción, lo que permite realizar pruebas más
+	  precisas para encontrar posibles problemas, ya que, tener la misma configuración que el
+	  entorno de producción brinda la tranquilidad de saber que los cambios que se introducen
+	  no causarán problemas cuando se lancen a producción.
+	- Un entorno de producción está disponible para que la gente lo vea y/o interactúe con él.
+-->
