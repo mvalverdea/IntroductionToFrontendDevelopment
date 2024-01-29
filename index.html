@@ -1851,3 +1851,278 @@ Ensayo vs producción
 	  no causarán problemas cuando se lancen a producción.
 	- Un entorno de producción está disponible para que la gente lo vea y/o interactúe con él.
 -->
+
+
+
+<!--SEMANA 2-->
+
+<!-- -----Comandos Unix----- -->
+<!--
+La línea de comando
+	- En el contexto del uso de una computadora, el término 'interactuar' simplemente significa
+	  intercambiar información o, más simple aún, enviar y recibir información.
+	- Las computadoras tienen varios dispositivos de entrada y salida. Algunos dispositivos de
+	  entrada son: teclado, mouse, micrófono, cámara y dispositivos sensibles al tacto. Algunos
+	  dispositivos de salida son: parlantes, monitores, auriculares y dispositivos hápticos.
+	- Una GUI (interfaz gráfica de usuario) también permite interactuar con dispositivos, pero
+	  también limitan en cierta medida el alcance de la interacción persona-computadora.
+	- La línea de comandos es una alternativa muy poderosa para interactuar con una computadora,
+	  porque permite a los desarrolladores realizar tareas más rápidas (ya que el CLI usa menos
+	  CPU y memoria que la GUI), y con suficiente experiencia hay menos posibilidad de errores.
+	- Algunas tareas básicas que se puede hacer con la línea de comandos son: crear nuevos
+	  directorios, crear nuevos archivos, combinar directorios, copiar y mover archivos entre
+	  diferentes directorios y buscar archivos utilizando varios criterios y palabras clave.
+	- Algunas tareas avanzadas que se puede hacer con la línea de comandos son: rastrear
+	  software, acceder y controlar servidores remotos, acceder a manuales de software y
+	  mostrarlos en la línea de comandos, instalar, actualizar y desinstalar software, verificar
+	  el espacio en disco, escribir scripts para automatizar diversas tareas, crear alias de
+	  solo unos pocos caracteres para iniciar comandos muy largos, controlar el acceso de los
+	  usuarios a archivos y programas, detener, iniciar y reiniciar programas.
+	- El comando 'cd' significa 'change directory' y se utiliza para hacer que la línea de
+	  comandos apunte a un directorio específico.
+	- El comando 'touch' crea un nuevo archivo del tipo que se especifique. El archivo recién
+	  creado estará vacío.
+	- El comando 'mkdir' significa 'make directory' y es usado para crear una nueva carpeta.
+	- El comando 'history' permite ver un historial de los comandos escritos más recientemente.
+
+cd desktop
+mkdir myjsproject
+cd myjsproject
+touch example.js
+code example.js
+
+¿Qué son los comandos Unix?
+	- Los usuarios interactúan con su teléfono y computadora a través de una GUI, que está solo
+	  una capa por encima de los comandos subyacentes que le indica al dispositivo qué hacer.
+	  Sin embargo, los desarrolladores necesitan saber cómo utilizar comandos específicos para
+	  realizar diversos tipos de tareas, específicamente comandos UNIX.
+	- La mayoría de las empresas ejecutan sus plataformas en la nube y el 90% de estos sistemas
+	  se ejecutan en una plataforma llamada Linux.
+	- Los comandos UNIX se puden usar con algo llamado 'flag'. Un 'flag' se utiliza para
+	  modificar el comportamiento de un comando. Se puede pensar en ellos como opciones que
+	  pueden cambiar o ampliar la funcionalidad del comando dado.
+	- Cada comando tiene un conjunto de instrucciones auxiliares. Estos auxiliares brindan
+	  información detallada sobre cómo se pueden ejecutar los comandos y cómo se puede pasar
+	  algo llamado 'flag'.
+	- La instrucción auxiliar 'man', que es la abreviatura de manual, se utiliza para mostrar
+	  un manual detallado de instrucciones de un comando específico.
+	- El comando 'ls'significa 'list' y se utiliza para mostrar el contenido del directorio de
+	  trabajo actual. El comando 'ls' puede aceptar muchos tipos diferentes de 'flags' que
+	  cambiarán lo que se devuelve en la respuesta. Por ejemplo, el comando 'ls -l' enumera el
+	  archivo en orden de lista y muestra los permisos de lectura o escritura, los propietarios
+	  y los grupos a los que pertenece. Por otro lado, el comando 'ls -la' enlistará todos los
+	  archivos y directorios, incluidos los ocultos.
+	- El comando 'pwd' significa 'print working directory' y se encarga de muestrar la ruta
+	  completa del directorio de trabajo actual.
+	- El comando 'cp' significa 'copy' y copia archivos o carpetas de un destino a otro.
+	- El comando 'mv' significa 'move' y se usa para mover directorios o archivos de un
+	  directorio a otro.
+
+Usando Bash en Windows
+	- El archivo '.bashrc' es principalmente para configuraciones del propio 'shell'. Es
+	  esencialmente un archivo script que se ejecuta cuando se abre el terminal window por
+	  primera vez.
+	- El archivo '.profile' tiende a usarse más para variables de entorno.
+
+ls -la
+less .bashrc
+less .profile
+vim testshell.sh
+ls -la
+chmod 755 testshell.sh
+ls -la
+./testshell.sh
+
+Lab1: Your Working Directory
+pwd
+
+Cambiar directorios y enlistar contenidos
+	- Si al usar el comando 'pwd', el resultado de este comando arroja un '/' o '/root',esto
+	  indica que actualmente se está en el directorio 'root'.
+	- Entender los diferentes símbolos y diferentes convenciones de nombres es importante cuando
+	  se quiere encontrar un archivo específico. Un directorio 'link' siempre se representa por
+	  una 'l' al inicio y un directorio 'standard' simepre se representa por una 'd' al inicio. 
+
+pwd
+ls
+ls -l
+cd etc
+ls
+pwd
+ls -l
+cd ..
+pwd
+cd etc
+pwd
+cd /
+pwd
+cd etc
+ls
+cd ssh
+ls
+cd ..
+cd ..
+pwd
+
+Creando y moviendo directorios y archivos
+
+pwd
+ls -l
+mkdir submissions
+ls -l
+cd submissions
+ls
+touch test1.txt
+touch test2.txt
+ls -l
+cd ..
+ls -l
+mkdir archive
+ls -l
+clear
+ls -l
+mv submissions archive
+ls -l
+cd archive
+ls -l
+cd submissions
+ls -l
+
+Lab2: Make and change directories and files
+
+mkdir lab
+cd lab
+touch file1.txt
+mkdir dir1
+mv file1.txt dir1/
+touch file2.txt
+mkdir -p dir2/dir3
+mv file2.txt dir2/dir3/
+cd dir2
+touch file3.txt
+mv file3.txt ../
+cd ..
+cd dir1
+ls -l
+cd ../dir2
+ls -l
+cd dir3
+ls -l
+
+Pipes
+	- Un 'pipe', que se representa por el caracter '|', permite pasar la salida de un comando
+	  como entrada a otro. Este comando se puede combinar con el directorio o con múltiples
+	  archivos.
+	- El comando 'cat' significa 'concatenate' y se utiliza para mostrar el contenido de un
+	  archivo sin tener que abrirlo para editarlo.
+	- El comando 'wc' significa 'word count' y cuando se usa con el flag 'w', este le dice que
+	  devuelva el recuento de palabras.
+
+ls
+cd archive
+ls
+cd submissions
+ls
+cat file1.txt
+wc file1.txt -w
+ls
+ls | wc -w
+cat file1.txt | wc -w
+cat file1.txt file2.txt | wc -w
+
+Redireccionamiento
+	- El flujo de trabajo básico de cualquier comando de Linux es que toma una entrada y da una
+	  salida. Con el redireccionamiento se puede cambiar la entrada y/o salida estándar.
+	- Hay tres tipos de redireccionamiento I/O: 'standard input', 'standard output' y 'standard
+	  error'. El 'shell' mantiene una referencia de standard 'input', 'output' y 'error' mediante
+	  un sistema de numeración. El 0 es para 'standard input', el 1 es para 'standard output' y
+	  el 2 es para 'standard error'.
+	- El redireccionamiento 'standard input' brinda la opción de registrar una entrada y
+	  guardarla en un archivo, ya sea sobrescribiéndolo o agregándolo.
+	- Recibir entradas normalmente se refiere a que un usuario escribe información desde el
+	  teclado. Se usa el signo '<' para la entrada del usuario.
+	- El comando 'cat' se puede utilizar para registrar la entrada del usuario y guardarla en un
+	  archivo, pues este comando en realidad está configurado para recibir entradas. Para
+	  finalizar la entrada de datos a un archivo se presiona 'Ctrl + D'.
+	- El redireccionamiento 'standard output' permite controlar a dónde va la salida.
+	- Muchos de los comandos envían su salida a un archivo especial llamado 'standard output'.
+	  La dirección de 'output' se maneja con el signo '>'. I/O permite usar el redireccionamiento
+	  para controlar a dónde va la salida. Si se envía la salida a un archivo que aun no ha sido
+	  creado, este se creará automáticamente debido al flag de redireccionamiento '>'.
+	- El redireccionamiento 'standard error' permite especificar que el error debe escribirse en
+	  un archivo.
+	- Mediante el redireccionamiento también se debe especificar que el error se escriba en un
+	  archivo. Puede hacerse configurando explícitamente el '2>' y también puede combinarse con
+	  el 'standard output' de '2>&1' para imprimir tanto el standard 'output' y 'error', si
+	  ocurre alguno.
+
+cat > input.txt
+cat < input.txt
+
+ls
+ls -l > output.txt
+ls
+less output.txt
+
+ls -l /bin/usr > error.txt
+ls -l /bin/usr 2> error.txt
+less error.txt
+
+ls -l /bin/usr > error_output.txt 2>&1
+less error_output.txt
+
+Grep
+	- 'Grep' significa 'global regular expression print' y se utiliza para buscar en archivos y
+	  carpetas, así como en el contenido de los archivos. Por ejemplo, se puede usar para
+	  encontrar algunos patrones de nombres que comiencen con coincidencias similares o archivos
+	  de un determinado tipo.
+	- El resultado del comando 'grep' variará según los flags con los que se combine. Además, se
+	  debe tener en cuenta que 'grep' es 'case sensitive', pero esta característica se le puede
+	  ignorar usando el flag 'i'. El flag 'w' le permite a 'grep' hacer búsquedas exactas.
+
+ls -l
+less names.txt
+grep Sam names.txt
+grep sam names.txt
+grep -i Sam names.txt
+grep -w Sam names.txt
+ls /bin
+ls /bin | grep zip
+-->
+
+
+
+<!--SEMANA 3-->
+
+<!-- -----Git y Github----- -->
+<!--
+¿Qué es Git y GitHub?
+	- En el desarrollo web y de software, los desarrolladores utilizan el control de versiones
+	  para rastrear las diferencias entre las versiones. Un método popular para rastrear
+	  versiones es el uso de tecnologías de control de versiones, como Git y GitHub.
+	- Git es un sistema de control de versiones diseñado para ayudar a los usuarios a realizar
+	  un seguimiento de los cambios en los archivos dentro de sus proyectos.
+	- Git también fue diseñado para abordar algunas de las deficiencias de otros sistemas de
+	  control de versiones.
+	- Los beneficios que ofrece Git sobre sistemas similares incluyen mejor velocidad y
+	  rendimiento, confiabilidad, acceso gratuito y de código abierto y una sintaxis accesible.
+	  También es importante tener en cuenta que Git se usa predominantemente a través de la
+	  línea de comandos.
+	- GitHub es un servicio de alojamiento basado en la nube que permite administrar repositorios
+	  Git desde una interfaz de usuario. Se utiliza un repositorio Git para rastrear todos los
+	  cambios en los archivos en una carpeta específica y mantener un historial de todos esos
+	  cambios.
+	- Github incorpora funciones de control de versiones de Git y las amplía proporcionando sus
+	  propias funciones. Algunas de las funciones más comunes incluyen control de acceso,
+	  solicitudes de extracción y automatización.
+	- GitHub es muy popular entre los desarrolladores web. Es como una red social ya que: los
+	  proyectos pueden ser privados o públicos, los usuarios tienen su propio perfil que otros
+	  usuarios pueden seguir y también incluye múltiples funciones fuera de sus herramientas de
+	  desarrollo principales, como documentación, emisión de tickets y funciones de proyecto.
+
+Conexión a GitHub a través de HTTPS
+	- Un token de acceso personal es una contraseña especial que se utiliza en lugar de la
+	  contraseña real de una cuenta. Cuando se termine de usar el token, se le debe revocar para
+	  que ya no pueda usarse y así mantener la cuenta segura.
+	- Ese token se podrá utilizar al conectarse a un repositorio a través de HTTPS.
+-->
