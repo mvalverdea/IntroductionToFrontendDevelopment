@@ -2125,4 +2125,263 @@ Conexión a GitHub a través de HTTPS
 	  contraseña real de una cuenta. Cuando se termine de usar el token, se le debe revocar para
 	  que ya no pueda usarse y así mantener la cuenta segura.
 	- Ese token se podrá utilizar al conectarse a un repositorio a través de HTTPS.
+
+¿Qué es Git y GitHub?
+	- En el desarrollo web y de software, los desarrolladores utilizan el control de versiones
+	  para rastrear las diferencias entre las versiones. Un método popular para rastrear
+	  versiones es el uso de tecnologías de control de versiones, como Git y GitHub.
+	- Git es un sistema de control de versiones diseñado para ayudar a los usuarios a realizar
+	  un seguimiento de los cambios en los archivos dentro de sus proyectos.
+	- Git también fue diseñado para abordar algunas de las deficiencias de otros sistemas de
+	  control de versiones.
+	- Los beneficios que ofrece Git sobre sistemas similares incluyen mejor velocidad y
+	  rendimiento, confiabilidad, acceso gratuito y de código abierto y una sintaxis accesible.
+	  También es importante tener en cuenta que Git se usa predominantemente a través de la
+	  línea de comandos.
+	- GitHub es un servicio de alojamiento basado en la nube que permite administrar repositorios
+	  Git desde una interfaz de usuario. Se utiliza un repositorio Git para rastrear todos los
+	  cambios en los archivos en una carpeta específica y mantener un historial de todos esos
+	  cambios.
+	- Github incorpora funciones de control de versiones de Git y las amplía proporcionando sus
+	  propias funciones. Algunas de las funciones más comunes incluyen control de acceso,
+	  solicitudes de extracción y automatización.
+	- GitHub es muy popular entre los desarrolladores web. Es como una red social ya que: los
+	  proyectos pueden ser privados o públicos, los usuarios tienen su propio perfil que otros
+	  usuarios pueden seguir y también incluye múltiples funciones fuera de sus herramientas de
+	  desarrollo principales, como documentación, emisión de tickets y funciones de proyecto.
+
+Conexión a GitHub a través de HTTPS
+	- Un token de acceso personal es una contraseña especial que se utiliza en lugar de la
+	  contraseña real de una cuenta. Cuando se termine de usar el token, se le debe revocar para
+	  que ya no pueda usarse y así mantener la cuenta segura.
+	- Ese token se podrá utilizar al conectarse a un repositorio a través de HTTPS.
+
+Creando y clonando un repositorio
+	- La extensión 'md' significa 'markdown', que es un método popular para crear documentación
+	  porque es una abreviatura para crear páginas HTML. Permite hacer cosas como crear títulos
+	  y textos, además de insertar imágenes y varios otros elementos de página web.
+	- Cada repositorio creado tendrá una única 'rama principal' al inicio. A la rama principal
+	  también se le conoce como 'línea principal'.
+	- Con el botón verde 'Code' de la UI de GitHub se puede clonar el repositorio de cinco formas
+	  diferentes. La primera opción es con HTTPS, que contiene el HTTPS URL del repositorio, que
+	  puede ser usado para clonarla por medio del comando 'git clone'. La segunda opción es con
+	  SSH (Secure Shell), en la cual se tiene que configurar las claves SSH y asignarlas a las
+	  cuentas de usuario. La tercera opción es mediante el GitHub CLI (GitHub Command Line
+	  Interface). Las dos últimas opciones es por medio de GitHub Desktop y Download ZIP.
+
+mkdir projects
+cd projects
+git clone https://github.com/mvalverdea/my-first-repo.git
+ls -la
+cd my-first-repo
+ls -l
+ls -la
+
+¿Cómo funciona Git?
+	- El flag 'la' significa 'list all' y al usarse con el comando 'ls', enlista todos los
+	  archivos y carpetas, incluidos los ocultos.
+	- En Linux, cualquier carpeta que comience con un '.' es una carpeta oculta.
+	- La carpeta '.git' se crea automáticamente cuando crea un repositorio. Esta carpeta oculta
+	  se utiliza para realizar un seguimiento de todos los cambios.
+	- La carpeta '.git' se inicializa ejecutando el comando 'git init', pero cuando el
+	  repositorio se crea desde GitHub, no es necesario ejecutarlo, ya que GitHub maneja todo
+	  eso como parte de su flujo de creación de nuevos repositorios.
+	- Git usa flujos de trabajo que se pueden dividir en tres estados, esto es: modified, staged
+	  y commited.
+	- Agregar, eliminar y actualizar cualquier archivo dentro del repositorio se considera un
+	  estado modified. Git sabe que el archivo ha cambiado, pero no lo rastrea.
+	- Para que Git rastree un archivo, es necesario colocarlo en el área staged. Una vez
+	  agregado, se realiza un seguimiento de cualquier modificación, lo cual ofrece una medida
+	  de seguridad antes de confirmar los cambios.
+	- En el estado commited se produce la confirmación de los cambios. Confirmar un archivo en
+	  Git es como un punto de guardado en muchos sentidos. Git guardará el archivo y tendrá una
+	  instantánea de los cambios actuales.
+
+Add y commit
+	- Antes de agregar archivos o realizar cambios, siempre es una buena práctica verificar si
+	  hay algún cambio o confirmación pendiente actualmente, para lo cual se usa el comando
+	  'git status'. Este comando también muestra la rama actual en la que se está apuntando y
+	  el estado del árbol de trabajo.
+	- El comando 'git add' le indica a Git que el archivo está preparado para ser confirmado y
+	  que se realizará un seguimiento de cualquier cambio adicional en el archivo en el futuro.
+	- El comando 'git store' con el flag '--stage' elimina la ejecución del comando 'git add'.
+	- Mientras no se aplique el comando 'git push', cualquier cambio que se realize al archivo,
+	  solo estará en la máquina local y no en el servidor remoto. Por ende, todos los cambios
+	  que se tenga en el repositorio local estarán actualmente por delante de lo que esté
+	  almacenado en el repositorio remoto en GitHub.
+	- El comando 'git commit' le indica a Git que los cambios están confirmados en la máquina
+	  local y listos para ser enviados al servidor remoto.
+
+pwd
+ls -la
+git status
+touch test.txt
+git status
+git add test.txt
+git status
+git restore --stage test.txt
+git status
+git add test.txt
+git status
+clear
+git commit -m "Adding a new file for testing"
+git status
+
+Ramas
+	- Tener ramas independientes hace que el proyecto sea más fácil de gestionar. Además, no hay
+	  límite en la cantidad de ramas que se puede tener. Es más probable que todos los que
+	  trabajen en una misma rama causen problemas.
+	- Para crear una nueva rama se usa el comando 'git checkout -B' o el comando 'git branch',
+	  seguido por el nombre de la rama a crear. Estos métodos son prácticamente los mismos y
+	  ambos pueden usarse para crear la rama. La diferencia clave entre ellos es que 'git
+	  branch' simplemente crea una rama, pero 'git checkout -B' se mueve de la rama 'main' a
+	  la rama que se cree. Por otro lado, el comando 'git branch' también puede ser usado para
+	  saber en qué rama se está trabajando actualmente. Además, el comando 'git checkout' puede
+	  ser usado para cambiar de una rama a otra.
+	- Cada rama en Git existe de forma aislada, por ende, la rama 'main' no tendrá indicación
+	  ni conocimiento de ninguno de los cambios ejecutados en cualquier otra rama en la que se
+	  esté trabajando. La nueva rama debe fusionarse nuevamente con la rama 'main' para que se
+	  reconozcan los cambios efectuados en esa nueva rama.
+	- Una vez realizado los cambios deseados a la nueva rama y haber aplicado los comandos 'git
+	  add' y 'git commit', el comando 'git push' enviará los cambios al repositorio remoto. Es
+	  una buena práctica especificar el flag '-u', ya que significa que solo se recibirán
+	  actualizaciones del nivel ascendente, que en este caso será la rama 'main', siendo el
+	  resultado de esto, que el origen ya no será la rama 'main', sino la nueva rama creada.
+	- Luego de ejecutar el comando 'git push', se pide crear solicitudes 'pull' que puedan
+	  compararse con otra rama, en este caso, la rama 'main'. 
+	- El propósito de una solicitud 'pull' es obtener una revisión por pares de los cambios
+	  realizados en la rama. En otras palabras, validar que los cambios sean correctos.
+
+pwd
+git status
+git checkout -B feature/lesson
+git branch
+touch test2.txt
+git add test2.txt
+git commit -m "Add test2.txt"
+git push -u origin feature/lesson
+git status
+git checkout main
+git pull
+ls
+
+Remoto vs local
+	- 'Remoto' se refiere a cualquier otro repositorio remoto al que los desarrolladores puedan
+	  enviar cambios.
+	- Se accede al código remoto a través de un URI que es único y solo accesible para quienes
+	  tienen permiso. Local, por otro lado, se refiere a una máquina, que puede ser una laptop,
+	  una desktop o incluso un dispositivo móvil y solo el propietario puede acceder a ella.
+	- Cuando un usuario quiere copiar un proyecto ubicado en un servidor remoto a su
+	  dispositivo local, debe realizar una clonación (si es la primera vez) o extraerla para
+	  obtener los últimos cambios. Para clonar un proyecto, un usuario primero debe elegir una
+	  carpeta en su máquina local. Una vez clonado o extraido, el usuario puede realizar cambios
+	  en el proyecto, confirmarlos y enviarlos al servidor. Otros usuarios que trabajen en el
+	  código base no verán esos cambios en sus máquinas locales a menos que extraigan los
+	  últimos cambios del servidor.
+	- El comando 'git init' se usa para inicializar un repositorio local vacío, es decir, crea
+	  la carptera '.git' dentro del directorio actual en el que se ejecute el comando. Este
+	  repositorio creado aun no tiene conexión con un repositorio central que se encuentre en
+	  GitHub u otro servidor. Esto se verifica al usar el comando 'git remote', el cual no arroja
+	  nada si el repositorio recién creado no tiene conexión con un servidor remoto.
+	- El comando 'git remote' se usa para configurar el repositorio remoto en Git.
+	- El comando 'git checkout main' en este caso configura una rama main del local para que
+	  rastree la rama main del remoto.
+
+ls -la
+mkdir my-second-repo
+cd my-second-repo
+git init
+git remote
+cd..
+cd my-first-repo
+git remote -v
+cd ..
+ls -la
+cd my-second-repo
+git remote add origin https://github.com/mvalverdea/my-first-repo.git
+git remote -v
+git pull
+ls
+git checkout main
+ls
+
+Push y pull
+	- Antes de hacer cambios, siempre es una buena práctica verificar en qué rama se está
+	  actualmente, para lo cual se usa los comandos 'git status' o 'git branch'. Esto es
+	  importante porque si realiza cambios en una rama diferente, se debe especificar hacia
+	  dónde se envían.
+	- Antes de realizar un envío, también es una buena práctica aplicar el comando 'git pull'
+	  para obtener los últimos cambios del repositorio remoto y reducir las probabilidades de
+	  encontrar un conflicto.
+
+git status
+git push origin main
+cat test.txt
+git pull
+cat test.txt
+
+Lab1: Using A Repository
+
+cd projects
+git clone https://github.com/mvalverdea/repo-exercise.git
+ls -la
+cd repo-exercise
+ls -l
+ls -la
+touch result.txt
+git status
+git add result.txt
+git status
+git commit -m "Successful exercise"
+git push
+
+Ejemplo de flujo de trabajo
+	- La elección de un flujo de trabajo requiere una consideración cuidadosa. Puede depender
+	  del tamaño del equipo, la cultura del lugar de trabajo y también del tipo de producto que
+	  se pretende crear o actualizar.
+	- Antes de crear una nueva rama, siempre se debe tener la seguridad de tener el código más
+	  reciente. Esto se puede hacer esto ejecutando el comando 'git pull' para extraer el código
+	  más reciente del repositorio remoto.
+
+HEAD
+	- 'HEAD' es un archivo de la carpeta '.git', y funciona como un puntero especial. Es por esta
+	  razón que la carpeta '.git' es responsable de realizar un seguimiento de todos los cambios
+	  en un proyecto.
+
+Comando Diff
+	- El comando 'git diff' permite comparar archivos individuales, ramas y las confirmaciones.
+	- A diferencia del comando 'git status' que indica cúales archivos han sido modificados, el
+	  'git diff' da un resultado más detallado al indicar cuáles son exactamente estos cambios.
+
+Blame
+	- Una de las funciones principales de Git es su capacidad de rastrear y registrar el
+	  historial completo de cambios de cada archivo en el repositorio. Para ver y verificar
+	  esos cambios, Git proporciona un conjunto de herramientas que permiten a los usuarios
+	  recorrer el historial y ver las ediciones realizadas en cada archivo.
+	- El comando 'git blame' se utiliza para observar los cambios de un archivo específico y
+	  mostrar las fechas, horas y usuarios que realizaron los cambios.
+
+Forking
+	- Al igual que 'branching', 'forking' es también un flujo de trabajo.  La diferencia clave
+	  entre 'branching' y 'forking' es que el flujo de trabajo para 'forking' crea un repositorio
+	  completamente nuevo, en cambio 'branching' corta una nueva rama del mismo repositorio cada
+	  vez y cada miembro del equipo trabaja en un único repositorio.
+-->
+
+
+
+<!-- -----Crear un repositorio con Forking----- -->
+<!--
+Lab1: Create a Ropository with Forking
+
+cd projects
+git clone https://github.com/mvalverdea/test-repo.git
+ls -la
+cd test-repo
+ls -l
+ls -la
+git checkout -b my-branch 
+git add class.md
+git commit -m 'minor changes'
+git push origin my-branch
 -->
